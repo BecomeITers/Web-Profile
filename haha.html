@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hồ sơ cá nhân • Nam</title>
+  <meta name="description" content="Trang hồ sơ cá nhân với các mục bài tập và liên kết. Thuần HTML + CSS, không dùng JS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb;
+      --accent:#22d3ee; --accent-2:#38bdf8; --border:#1f2937;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a;
+             --accent:#0891b2; --accent-2:#0284c7; --border:#e2e8f0; }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.12), transparent 60%),
+        radial-gradient(900px 500px at 10% -10%, rgba(56,189,248,.18), transparent 60%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent-2)}
+    .container{max-width:1100px; margin:0 auto; padding:0 16px}
+
+    /* Hero */
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+    .card{
+      background:color-mix(in oklab, var(--panel) 92%, transparent);
+      border:1px solid var(--border);
+      border-radius:18px; padding:24px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.02);
+    }
+    .tag{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted); font-weight:600; font-size:12px}
+    h1{margin:.4em 0 .2em; font-size:34px; line-height:1.15}
+    .lead{color:var(--muted); max-width:60ch}
+    .meta{display:flex; gap:14px; flex-wrap:wrap; margin-top:16px}
+    .meta .chip{border:1px solid var(--border); border-radius:999px; padding:6px 12px; font-weight:600; font-size:13px; color:var(--muted)}
+    .avatar{
+      aspect-ratio:1/1; width:100%; border-radius:16px; border:1px solid var(--border);
+      background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, transparent), transparent),
+                 repeating-linear-gradient(135deg, color-mix(in oklab, var(--accent) 25%, transparent) 0 1px, transparent 1px 8px);
+    }
+
+    /* Sections */
+    section{padding:28px 0}
+    h2{font-size:22px; margin:0 0 12px}
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
+
+    /* Exercise blocks (title + list of links) */
+    .exercise{
+      border:1px solid var(--border); border-radius:16px; padding:16px; background:var(--panel);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .exercise:hover{
+      transform:translateY(-3px);
+      border-color:color-mix(in oklab, var(--accent) 40%, var(--border));
+      box-shadow:0 10px 26px rgba(0,0,0,.14);
+    }
+    .exercise h3{
+      margin:0 0 8px; font-size:18px; display:flex; align-items:center; gap:8px;
+    }
+    .link-list{list-style:none; padding:0; margin:0}
+    .link-list li{margin:6px 0}
+    .badge{font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
+    .link-desc{color:var(--muted); font-size:14px}
+
+    /* Skills */
+    .skills{display:flex; flex-wrap:wrap; gap:10px}
+    .pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--panel); font-weight:600; color:var(--muted); font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:repeat(2, 1fr)}
+    }
+    @media (max-width:640px){
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      h1{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero (không còn header/nav) -->
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="card">
+        <span class="tag">#AboutMe</span>
+        <h1>Xin chào, mình là <span style="color:var(--accent)">Nguyễn Nhật Nam</span> 👋</h1>
+        <p class="lead">Network Engineer yêu thích xây dựng hệ thống, bảo mật và làm sản phẩm học thuật. Đây là trang hồ sơ cá nhân của mình — nơi bạn có thể xem thông tin, kỹ năng và các bài tập đã làm.</p>
+        <div class="meta">
+          <span class="chip">📍 Trường Đại học Sư Phạm Kỹ Thuật TPHCM</span>
+          <span class="chip">⚡ Yêu thích: Networking</span>
+          <span class="chip">🎓 CCNA</span>
+          <span class="chip">🎓 CCNP</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="haha.jpg" class="avatar" alt="Ảnh Nam" />
+        <p class="link-desc" style="margin-top:10px"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Giới thiệu -->
+  <section id="gioithieu">
+    <div class="container">
+      <div class="card">
+        <h2>Giới thiệu</h2>
+        <p>Mình có kinh nghiệm cấu hình hệ thống mạng doanh nghiệp (VLAN, OSPF, ACL, VPN site-to-site, RADIUS/Wi-Fi Enterprise), triển khai server Windows/Linux và tự động hoá bằng script. Bên cạnh đó, mình cũng học và làm các bài tập web.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kỹ năng -->
+  <section id="kynang">
+    <div class="container">
+      <div class="card">
+        <h2>Kỹ năng</h2>
+        <div class="skills">
+          <span class="pill">Cisco • VLAN/OSPF/ACL</span>
+          <span class="pill">VPN IPsec / NAT</span>
+          <span class="pill">RADIUS • WPA2-Enterprise</span>
+          <span class="pill">Windows Server • AD/DHCP/DNS</span>
+          <span class="pill">Linux • Bash</span>
+          <span class="pill">HTML • CSS</span>
+          <span class="pill">Python • Flask (cơ bản)</span>
+          <span class="pill">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bài tập (mỗi bài = tiêu đề + 2 link) -->
+  <section id="baitap">
+    <div class="container">
+      <div class="card">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <h2 style="margin:0">Bài tập</h2>
+        </div>
+
+        <div class="grid cols-3" style="margin-top:12px">
+          <!-- Bài tập 01 -->
+          <div class="exercise">
+            <h3>📄 Bài tập 01<span class="badge"></span></h3>
+            <ul class="link-list">
+              <li><a href="https://anonymous2k5.odoo.com/" target="_blank" rel="noopener">🔗 BTVN</a></li>
+            </ul>
+          </div>
+
+          <!-- Bài tập 02 -->
+          <div class="exercise">
+            <h3>🎨 Bài tập 02:<span class="badge"></span></h3>
+            <ul class="link-list">
+              <li><a href="https://btvn-tgxp.onrender.com/" target="_blank" rel="noopener">🔗 BTVN</a></li>
+            </ul>
+          </div>
+
+          <!-- Bài tập 03 -->
+          <div class="exercise">
+            <h3>📝 Bài tập 03:<span class="badge"></span></h3>
+            <ul class="link-list">
+              <li><a href="https://btvn2.onrender.com/" target="_blank" rel="noopener">🔗 BTVN</a></li>
+            </ul>
+          </div>
+
+          <!-- Bạn thêm tiếp các bài khác tương tự -->
+          <div class="exercise">
+            <h3>📚 Bài tập 04:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn3-1.onrender.com/" target="_blank" rel="noopener">🔗 BTVN</a></li>
+            </ul>
+          </div>
+
+          <div class="exercise">
+            <h3>🔗 Bài tập 05:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn4.onrender.com" target="_blank" rel="noopener">🔗 Bài 1</a></li>
+              <li><a href="https://btvn4-0.onrender.com" target="_blank" rel="noopener">🔗 Bài 2</a></li>
+            </ul>
+          </div>
+
+          <div class="exercise">
+            <h3>🧭 Bài tập 06:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn5.onrender.com" target="_blank" rel="noopener">🔗 Bài 1</a></li>
+              <li><a href="https://btvn6-0.onrender.com" target="_blank" rel="noopener">🔗 Bài 2</a></li>
+              <li><a href="https://btvn6-1.onrender.com" target="_blank" rel="noopener">🔗 Bài 3</a></li>
+            </ul>
+          </div>
+          <div class="exercise">
+            <h3>📚 Bài tập 07:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn-7-0.onrender.com" target="_blank" rel="noopener">🔗 Bài 1</a></li>
+              <li><a href="https://btvn7-1.onrender.com" target="_blank" rel="noopener">🔗 Bài 2</a></li>
+            </ul>
+          </div>
+
+          <div class="exercise">
+            <h3>🔗 Bài tập 08:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn-8.onrender.com" target="_blank" rel="noopener">🔗 Bài 1</a></li>
+              <li><a href="https://btvn8-1.onrender.com" target="_blank" rel="noopener">🔗 Bài 2</a></li>
+            </ul>
+          </div>
+
+          <div class="exercise">
+            <h3>🧭 Bài tập 09:</h3>
+            <ul class="link-list">
+              <li><a href="https://btvn-9.onrender.com" target="_blank" rel="noopener">🔗 Bài 1</a></li>
+              <li><a href="https://btvn-9-2.onrender.com" target="_blank" rel="noopener">🔗 Bài 2</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="link-desc" style="margin-top:14px">
+            Hãy theo đuổi đam mê đến cùng
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (Đã bỏ footer theo yêu cầu) -->
+</body>
+</html>
